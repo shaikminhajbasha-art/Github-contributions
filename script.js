@@ -4,6 +4,57 @@ const statusText = document.getElementById("status");
 const DATA_DIR = "data";
 const DEFAULT_JSON_FILES = ["john-doe.json", "karthik.json", "rahul.json"];
 
+function normalizeJsonFileName(fileName) {
+  return String(fileName || "").trim().split("/").pop() || "";
+}
+
+function isJsonFile(fileName) {
+  return fileName.toLowerCase().endsWith(".json");
+}
+
+function getGitHubRepoContext() {
+  const host = window.location.hostname;
+  if (!host.endsWith(".github.io")) {
+    return null;
+  }
+
+  const owner = host.split(".")[0];
+  const pathParts = window.location.pathname.split("/").filter(Boolean);
+  const repo = pathParts.length > 0 ? pathParts[0] : `${owner}.github.io`;
+
+  if (!owner || !repo) {
+    return null;
+  }
+
+  return { owner, repo };
+}
+
+async function discoverJsonFilesFromGitHubApi() {
+  const repoContext = getGitHubRepoContext();
+  if (!repoContext) {
+    return [];
+  }
+
+  try {
+    const apiUrl = `https://api.github.com/repos/${repoContext.owner}/${repoContext.repo}/contents/${DATA_DIR}`;
+    const response = await fetch(apiUrl, { cache: "no-store" });
+    if (!response.ok) {
+      return [];
+    }
+
+    const entries = await response.json();
+    if (!Array.isArray(entries)) {
+      return [];
+    }
+
+    return entries
+      .filter((entry) => entry && entry.type === "file" && isJsonFile(entry.name))
+      .map((entry) => normalizeJsonFileName(entry.name));
+  } catch (error) {
+    return [];
+  }
+}
+
 function escapeHTML(value) {
   return String(value)
     .replaceAll("&", "&amp;")
@@ -44,14 +95,19 @@ async function discoverJsonFiles() {
       const matches = directoryHtml.matchAll(/href=["']([^"']+\.json)["']/gi);
       for (const match of matches) {
         const filePath = match[1].split("?")[0].split("#")[0];
-        const file = filePath.split("/").pop();
-        if (file) {
+        const file = normalizeJsonFileName(filePath);
+        if (file && isJsonFile(file)) {
           discovered.add(file);
         }
       }
     }
   } catch (error) {
     // Some static hosts do not expose directory listings; fallback handles this.
+  }
+
+  if (discovered.size === 0) {
+    const apiDiscoveredFiles = await discoverJsonFilesFromGitHubApi();
+    apiDiscoveredFiles.forEach((file) => discovered.add(file));
   }
 
   if (discovered.size === 0) {

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Templates | Portfolio Showcase</title>
+  <meta
+    name="description"
+    content="Copy-ready templates for GitHub Issue, Pull Request, and contributor JSON file."
+  />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="bg-orb orb-one" aria-hidden="true"></div>
+  <div class="bg-orb orb-two" aria-hidden="true"></div>
+
+  <header class="hero">
+    <p class="hero-kicker">Research & Innovation Team</p>
+    <h1>Contribution Templates</h1>
+    <p class="hero-text">
+      Use these templates directly while creating your Issue, PR, and JSON file.
+    </p>
+    <div class="hero-actions">
+      <a class="hero-cta" href="instructions.html">Back to Instructions</a>
+      <a class="hero-cta hero-cta-secondary" href="index.html">Back to Showcase</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="workflow" aria-labelledby="templates-title">
+      <h2 id="templates-title">Copy-Ready Templates</h2>
+
+      <div class="workflow-alert workflow-alert-strong">
+        <strong>Important:</strong> Do not make any changes in the main <strong>index.html</strong> file.
+      </div>
+
+      <h3>1) Issue Template</h3>
+      <pre class="workflow-code"><code>Title: Add &lt;your-name&gt; portfolio
+
+Body:
+I want to contribute to the portfolio showcase.
+I will add:
+- data/&lt;your-name&gt;.json
+- portfolios/&lt;your-name&gt;.html
+
+Please assign this issue to me.
+</code></pre>
+
+      <h3>2) Pull Request Template</h3>
+      <pre class="workflow-code"><code>Title: Add &lt;your-name&gt; portfolio files
+
+Description:
+## Summary
+- Added data/&lt;your-name&gt;.json
+- Added portfolios/&lt;your-name&gt;.html
+
+## Checklist
+- [x] I did not edit main index.html
+- [x] I used my own branch
+- [x] I tested links locally
+
+Closes #&lt;issue-number&gt;
+</code></pre>
+
+      <h3>3) JSON Template (data/&lt;your-name&gt;.json)</h3>
+      <pre class="workflow-code"><code>{
+  "name": "Your Name",
+  "year": "1st Year CSE",
+  "intro": "Short intro about your interests and goals.",
+  "portfolio": "portfolios/your-name.html"
+}
+</code></pre>
+
+      <p class="workflow-note">
+        After adding your JSON file in the <strong>data</strong> folder, your card will be picked up and shown on the showcase page automatically.
+      </p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>Built for the Research & Innovation GitHub Contribution Workshop.</p>
+  </footer>
+</body>
+</html>
