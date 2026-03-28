@@ -59,6 +59,18 @@ You need to contribute in **2 places only**:
 
 Inside the `portfolios/` folder, create **your own file only**
 
+Your portfolio must be a **single HTML file only** (write HTML/CSS/JS inside the same file).
+
+✅ valid examples:
+
+```text id="n1p6t4"
+portfolios/john-doe.html
+portfolios/karthik.html
+portfolios/rahul.html
+```
+
+❌ do not create portfolio files outside `portfolios/`
+
 Example:
 
 ```text id="v8q4t1"
@@ -191,67 +203,76 @@ portfolios/rahul.html
 
 ## 🚀 Contribution Steps
 
-### 1) Create Your Branch
+### 1) Clone Once (Skip if already cloned)
+
+```bash id="c7v3b9"
+git clone <repository-url>
+cd portfolio-showcase
+```
+
+---
+
+### 2) Create Issue First and Get Assigned
+
+Use GitHub website first.
+
+Optional GitHub CLI:
+
+```bash id="k3d8n1"
+gh issue create --title "Add your-name portfolio" --body "I will add data/your-name.json and portfolios/your-name.html"
+```
+
+---
+
+### 3) Sync Main and Create Your Branch
 
 ```bash id="f3t7x1"
-git checkout -b john-doe
+git checkout main
+git pull origin main
+git checkout -b your-name
+git pull origin main
 ```
 
 ---
 
-### 2) Pull Latest Updates
+### 4) Make Your Changes Only in These Two Files
+
+```text id="q4w8m2"
+portfolios/your-name.html
+data/your-name.json
+```
+
+---
+
+### 5) Check Changes and Add Only Your Files
 
 ```bash id="q6m2v9"
-git pull origin main
+git status
+
+# example
+git add portfolios/john-doe.html data/john-doe.json
 ```
 
 ---
 
-### 3) Check Branch + Status
+### 6) Commit and Push to Your Branch
 
 ```bash id="z4p8n5"
-git branch
-git status
+git commit -m "Add your-name portfolio"
+git push -u origin your-name
 ```
 
 ---
 
-### 4) Add Your Card + Portfolio Page
+### 7) Raise Pull Request (Use PR Template)
 
-Edit only your own files
+Create PR from `your-name` branch to `main`.
 
----
+Optional GitHub CLI:
 
-### 5) Save Changes
-
-```bash id="j1x9k4"
-git add .
-git commit -m "Added John Doe portfolio"
+```bash id="t5r2n8"
+gh pr create --base main --head your-name --title "Add your-name portfolio files" --body "Closes #issue-number"
 ```
-
----
-
-### 6) Pull Latest Updates Again
-
-```bash id="u5c3m7"
-git pull origin main
-```
-
-⚠️ Always do this before pushing
-
----
-
-### 7) Push Your Branch
-
-```bash id="l8v2n6"
-git push origin john-doe
-```
-
----
-
-### 8) Create Pull Request
-
-Go to GitHub and raise your PR.
 
 ---
 

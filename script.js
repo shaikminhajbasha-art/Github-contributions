@@ -1,5 +1,7 @@
 const contributorsGrid = document.getElementById("contributorsGrid");
 const statusText = document.getElementById("status");
+const jsonFileCount = document.getElementById("jsonFileCount");
+const cardCount = document.getElementById("cardCount");
 
 const DATA_DIR = "data";
 const DEFAULT_JSON_FILES = ["john-doe.json", "karthik.json", "rahul.json"];
@@ -85,6 +87,25 @@ function inferSlugFromFile(fileName) {
   return fileName.replace(/\.json$/i, "");
 }
 
+function normalizePortfolioPath(rawPath, slug) {
+  const fallbackPath = `portfolios/${slug}.html`;
+  const value = String(rawPath || "").trim();
+
+  if (!value) {
+    return fallbackPath;
+  }
+
+  if (value.toLowerCase().startsWith("portfolios/") && value.toLowerCase().endsWith(".html")) {
+    return value;
+  }
+
+  if (value.toLowerCase().endsWith(".html")) {
+    return `portfolios/${value.split("/").pop()}`;
+  }
+
+  return fallbackPath;
+}
+
 async function discoverJsonFiles() {
   const discovered = new Set();
 
@@ -133,15 +154,22 @@ async function loadContributors() {
         name: data.name || "Unknown Contributor",
         year: data.year || "Year not provided",
         intro: data.intro || "No intro added yet.",
-        portfolio: data.portfolio || "",
+        portfolio: normalizePortfolioPath(data.portfolio, inferSlugFromFile(file)),
       };
     })
   );
 
-  return results
+  const validContributors = results
     .filter((item) => item.status === "fulfilled")
     .map((item) => item.value)
+    .filter((item) => item.name && item.slug)
     .sort((a, b) => a.name.localeCompare(b.name));
+
+  return {
+    contributors: validContributors,
+    discoveredFileCount: files.length,
+    invalidFileCount: Math.max(files.length - validContributors.length, 0),
+  };
 }
 
 function animateReveals() {
@@ -168,9 +196,17 @@ function animateReveals() {
 
 async function renderContributors() {
   try {
-    const contributors = await loadContributors();
+    const { contributors, discoveredFileCount, invalidFileCount } = await loadContributors();
 
     contributorsGrid.innerHTML = "";
+
+    if (jsonFileCount) {
+      jsonFileCount.textContent = `JSON Files: ${discoveredFileCount}`;
+    }
+
+    if (cardCount) {
+      cardCount.textContent = `Cards Shown: ${contributors.length}`;
+    }
 
     if (contributors.length === 0) {
       statusText.textContent = "No contributors found yet. Add JSON files in the data folder.";
@@ -180,11 +216,24 @@ async function renderContributors() {
     const cards = contributors.map((contributor) => buildCard(contributor));
     cards.forEach((card) => contributorsGrid.appendChild(card));
 
-    statusText.textContent = `Showing ${contributors.length} contributor${contributors.length > 1 ? "s" : ""}.`;
+    if (invalidFileCount > 0) {
+      statusText.textContent = `Showing ${contributors.length} contributor${contributors.length > 1 ? "s" : ""}. ${invalidFileCount} JSON file${invalidFileCount > 1 ? "s were" : " was"} skipped due to invalid data.`;
+    } else {
+      statusText.textContent = `Showing ${contributors.length} contributor${contributors.length > 1 ? "s" : ""}.`;
+    }
+
     animateReveals();
   } catch (error) {
     statusText.textContent = "Unable to load contributors. Make sure you are running with a local server.";
     contributorsGrid.innerHTML = "";
+
+    if (jsonFileCount) {
+      jsonFileCount.textContent = "JSON Files: 0";
+    }
+
+    if (cardCount) {
+      cardCount.textContent = "Cards Shown: 0";
+    }
   }
 }
 

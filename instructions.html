@@ -39,7 +39,7 @@
     <section class="workflow" aria-labelledby="workflow-title">
       <h2 id="workflow-title">Contribution Workflow</h2>
       <p class="workflow-lead">
-        Follow this flow exactly to avoid merge conflicts and keep all contributions clean.
+        Follow this flow exactly to avoid merge conflicts, keep contributions clean, and make sure your JSON shows correctly on the index page.
       </p>
 
       <div class="workflow-alert workflow-alert-strong">
@@ -68,6 +68,8 @@
       <ul class="workflow-list">
         <li>Use your own name for branch: <strong>your-name</strong> (example: <strong>john-doe</strong>).</li>
         <li>Use same name for both files: <strong>data/your-name.json</strong> and <strong>portfolios/your-name.html</strong>.</li>
+        <li>Your portfolio must be a <strong>single HTML file</strong> (HTML/CSS/JS in one file), for example: <strong>portfolios/john-doe.html</strong>.</li>
+        <li>Portfolio files must be added <strong>only inside the portfolios folder</strong>.</li>
         <li>Do not edit shared files unless a mentor asks.</li>
       </ul>
 
@@ -90,6 +92,13 @@
         </div>
       </div>
 
+      <h3>2.1) JSON to Index Auto Display (How it works)</h3>
+      <ul class="workflow-list">
+        <li>Add a valid file in <strong>data/your-name.json</strong>.</li>
+        <li>Use portfolio path as <strong>portfolios/your-name.html</strong>.</li>
+        <li>After push, index page picks up your JSON automatically and card layout auto-adjusts size, padding, and alignment.</li>
+      </ul>
+
       <h3>3) Command Flow (Run in this order)</h3>
       <pre class="workflow-code"><code># Clone once (skip if already cloned)
 git clone &lt;repository-url&gt;
@@ -109,35 +118,33 @@ git checkout -b your-name
 
 # Pull again to be safe before editing
 git pull origin main
-</code></pre>
 
-      <p class="workflow-note">
-        Start adding or editing your files <strong>only after</strong> the last command above completes
-        successfully.
-      </p>
+# Make your changes in only these files
+# portfolios/your-name.html
+# data/your-name.json
 
-      <h3>4) Add Your Files, Commit, and Push to Your Branch</h3>
-      <pre class="workflow-code"><code># Edit only these two files
-data/your-name.json
-portfolios/your-name.html
-
-# Check changes
+# Check what changed
 git status
 
-# Stage only your files
-git add data/your-name.json portfolios/your-name.html
+# Add only your own files (example)
+git add portfolios/john-doe.html data/john-doe.json
 
 # Commit
-git commit -m "Add your-name portfolio"
+git commit -m "Add john-doe portfolio"
 
-# Push only to your branch (never to main)
+# Push to your branch
 git push -u origin your-name
 </code></pre>
 
-      <h3>5) Final Step</h3>
       <p class="workflow-note">
-        Open a Pull Request from <strong>your-name</strong> branch to <strong>main</strong>, and
-        link your assigned Issue in PR description using <strong>Closes #issue-number</strong>.
+        Start editing only after issue assignment. After you push your branch, raise PR using the
+        <strong>GitHub website only</strong> (not CLI) and use the PR template from templates page.
+      </p>
+
+      <h3>4) Final Step</h3>
+      <p class="workflow-note">
+        Open a Pull Request from <strong>your-name</strong> branch to <strong>main</strong> on GitHub website,
+        and link your assigned Issue in PR description using <strong>Closes #issue-number</strong>.
       </p>
     </section>
   </main>

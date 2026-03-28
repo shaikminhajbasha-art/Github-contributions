@@ -43,20 +43,60 @@
   <main>
     <section class="showcase reveal" id="contributors" aria-labelledby="contributors-title">
       <div class="section-head">
-        <h2 id="contributors-title">Workshop Contributors</h2>
-        <p>Cards are generated dynamically from each student JSON file.</p>
+        <div>
+          <h2 id="contributors-title">Workshop Contributors</h2>
+          <p>Cards are generated automatically from files inside the data folder.</p>
+        </div>
+        <div class="showcase-meta" aria-label="Contributor summary">
+          <span class="meta-pill" id="jsonFileCount">JSON Files: 0</span>
+          <span class="meta-pill" id="cardCount">Cards Shown: 0</span>
+        </div>
       </div>
 
       <p class="status" id="status" aria-live="polite">Loading contributors...</p>
       <div class="contributors-grid" id="contributorsGrid"></div>
     </section>
 
+    <section class="json-process reveal" aria-labelledby="json-process-title">
+      <h2 id="json-process-title">JSON Add Process (Clean and Safe)</h2>
+      <p>
+        Add one valid JSON file in the data folder and your card will appear on this page
+        automatically with proper size, spacing, and alignment.
+      </p>
+
+      <div class="json-process-grid">
+        <article class="json-step-card">
+          <h3>1) Create Your JSON File</h3>
+          <p>Use your branch name and file name pattern: data/your-name.json</p>
+        </article>
+        <article class="json-step-card">
+          <h3>2) Add Portfolio Path</h3>
+          <p>Point to your single-file portfolio page in portfolios/your-name.html.</p>
+        </article>
+        <article class="json-step-card">
+          <h3>3) Push Your Branch</h3>
+          <p>After push, this index page reads the new JSON and shows your card automatically.</p>
+        </article>
+      </div>
+
+      <pre class="workflow-code"><code>{
+  "name": "Your Name",
+  "year": "1st Year CSE",
+  "intro": "Short intro about your interests.",
+  "portfolio": "portfolios/your-name.html"
+}
+</code></pre>
+    </section>
+
     <section class="workflow-preview reveal" aria-labelledby="workflow-preview-title">
       <h2 id="workflow-preview-title">Contribution Instructions</h2>
       <p>
-        The full contribution workflow has been moved to a dedicated page for easier reading.
+        Full contribution workflow, templates, and warning rules are available on separate pages.
       </p>
-      <a class="hero-cta" href="instructions.html">Open Instructions Page</a>
+      <div class="hero-actions">
+        <a class="hero-cta" href="instructions.html">Open Instructions Page</a>
+        <a class="hero-cta hero-cta-secondary" href="templates.html">Open Templates Page</a>
+      </div>
     </section>
   </main>
 
