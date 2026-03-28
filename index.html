@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Research & Innovation Portfolio Showcase</title>
+  <meta
+    name="description"
+    content="A collaborative portfolio showcase for the Research and Innovation GitHub contribution workshop."
+  />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="bg-orb orb-one" aria-hidden="true"></div>
+  <div class="bg-orb orb-two" aria-hidden="true"></div>
+
+  <header class="hero reveal">
+    <p class="hero-kicker">Research & Innovation Team</p>
+    <h1>Portfolio Showcase</h1>
+    <p class="hero-text">
+      A student-built contribution platform where every participant ships a personal portfolio
+      through GitHub collaboration.
+    </p>
+    <a class="hero-cta" href="#contributors">Explore Contributors</a>
+  </header>
+
+  <main>
+    <section class="showcase reveal" id="contributors" aria-labelledby="contributors-title">
+      <div class="section-head">
+        <h2 id="contributors-title">Workshop Contributors</h2>
+        <p>Cards are generated dynamically from each student JSON file.</p>
+      </div>
+
+      <p class="status" id="status" aria-live="polite">Loading contributors...</p>
+      <div class="contributors-grid" id="contributorsGrid"></div>
+    </section>
+
+    <section class="workflow reveal" aria-labelledby="workflow-title">
+      <h2 id="workflow-title">Contribution Workflow</h2>
+      <p class="workflow-lead">
+        Follow this flow exactly to avoid merge conflicts and keep all contributions clean.
+      </p>
+
+      <p class="workflow-video">
+        Reference video:
+        <a href="https://www.youtube.com/watch?v=v2X51AVgl3o" target="_blank" rel="noopener">
+          Watch contribution process
+        </a>
+      </p>
+
+      <div class="workflow-alert">
+        Never push directly to <strong>main</strong>. Always pull latest changes first, work in your
+        own branch, and push only to your branch.
+      </div>
+
+      <div class="workflow-alert workflow-alert-strong">
+        Do <strong>not</strong> raise a PR directly. First create an Issue, wait until it is
+        assigned to you, then start code changes and create PR.
+      </div>
+
+      <h3>0) Mandatory First Step: Issue First, Then PR</h3>
+      <ul class="workflow-list">
+        <li>Open a new Issue with your name and file plan.</li>
+        <li>Wait for mentor/admin assignment on that Issue.</li>
+        <li>Only after assignment, create your branch and start editing files.</li>
+        <li>After push, open PR and mention the Issue number (example: <strong>Closes #12</strong>).</li>
+      </ul>
+
+      <h3>1) Branch and File Naming Rules</h3>
+      <ul class="workflow-list">
+        <li>Use your own name for branch: <strong>your-name</strong> (example: <strong>john-doe</strong>).</li>
+        <li>Use same name for both files: <strong>data/your-name.json</strong> and <strong>portfolios/your-name.html</strong>.</li>
+        <li>Do not edit shared files unless a mentor asks.</li>
+      </ul>
+
+      <h3>2) First Three Example Structures (Use the same pattern)</h3>
+      <div class="workflow-grid">
+        <div class="workflow-card">
+          <h4>Example 1</h4>
+          <p><strong>Branch:</strong> john-doe</p>
+          <p><strong>Files:</strong> data/john-doe.json, portfolios/john-doe.html</p>
+        </div>
+        <div class="workflow-card">
+          <h4>Example 2</h4>
+          <p><strong>Branch:</strong> karthik</p>
+          <p><strong>Files:</strong> data/karthik.json, portfolios/karthik.html</p>
+        </div>
+        <div class="workflow-card">
+          <h4>Example 3</h4>
+          <p><strong>Branch:</strong> rahul</p>
+          <p><strong>Files:</strong> data/rahul.json, portfolios/rahul.html</p>
+        </div>
+      </div>
+
+      <h3>3) Command Flow (Run in this order)</h3>
+      <pre class="workflow-code"><code># Clone once (skip if already cloned)
+git clone &lt;repository-url&gt;
+cd portfolio-showcase
+
+    # Create Issue first on GitHub website and get assigned
+    # Optional GitHub CLI alternative:
+    # gh issue create --title "Add your-name portfolio" --body "I will add data/your-name.json and portfolios/your-name.html"
+    # Start coding only after assignment.
+
+# Always sync first
+git checkout main
+git pull origin main
+
+# Create and switch to your own branch
+git checkout -b your-name
+
+# Pull again to be safe before editing
+git pull origin main
+</code></pre>
+
+      <p class="workflow-note">
+        Start adding or editing your files <strong>only after</strong> the last command above completes
+        successfully.
+      </p>
+
+      <h3>4) Add Your Files, Commit, and Push to Your Branch</h3>
+      <pre class="workflow-code"><code># Edit only these two files
+data/your-name.json
+portfolios/your-name.html
+
+# Check changes
+git status
+
+# Stage only your files
+git add data/your-name.json portfolios/your-name.html
+
+# Commit
+git commit -m "Add your-name portfolio"
+
+# Push only to your branch (never to main)
+git push -u origin your-name
+</code></pre>
+
+      <h3>5) Final Step</h3>
+      <p class="workflow-note">
+        Open a Pull Request from <strong>your-name</strong> branch to <strong>main</strong>, and
+        link your assigned Issue in PR description using <strong>Closes #issue-number</strong>.
+      </p>
+    </section>
+  </main>
+
+  <footer class="site-footer reveal">
+    <p>Built for the Research & Innovation GitHub Contribution Workshop.</p>
+  </footer>
+
+  <script src="script.js" defer></script>
+</body>
+</html>
