@@ -1,0 +1,208 @@
+Copy
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Mohitha ✦</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;1,300&family=DM+Sans:wght@300;400&family=Space+Mono&display=swap" rel="stylesheet"/>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:#f9f5ff;color:#2a1f3d;overflow-x:hidden}
+body::before,body::after{content:'';position:fixed;border-radius:50%;filter:blur(80px);z-index:-1;pointer-events:none}
+body::before{width:500px;height:500px;background:#dcc8ff;top:-150px;left:-100px;opacity:.5;animation:drift 18s ease-in-out infinite alternate}
+body::after{width:400px;height:400px;background:#ffcce8;bottom:0;right:-100px;opacity:.4;animation:drift 22s ease-in-out infinite alternate-reverse}
+@keyframes drift{to{transform:translate(40px,30px)}}
+nav{position:fixed;top:20px;left:50%;transform:translateX(-50%);z-index:99;display:flex;gap:24px;padding:10px 28px;background:rgba(255,255,255,.6);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.8);border-radius:999px;box-shadow:0 4px 20px rgba(180,140,255,.12)}
+nav a{font-family:'Space Mono',monospace;font-size:.68rem;letter-spacing:.1em;color:#9a8ab0;text-decoration:none;text-transform:uppercase;transition:color .3s}
+nav a:hover{color:#9b7fe8}
+section{max-width:860px;margin:0 auto;padding:90px 24px}
+.card{background:rgba(255,255,255,.5);backdrop-filter:blur(18px);border:1px solid rgba(255,255,255,.75);border-radius:20px;box-shadow:0 6px 32px rgba(180,140,255,.13);padding:32px}
+.lbl{font-family:'Space Mono',monospace;font-size:.65rem;letter-spacing:.22em;color:#9b7fe8;text-transform:uppercase;margin-bottom:8px}
+h2{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,5vw,3rem);font-weight:300;margin-bottom:34px;line-height:1.2}
+h2 em{font-style:italic;color:#9b7fe8}
+.show{opacity:0;transform:translateY(22px);transition:opacity .7s,transform .7s}.show.on{opacity:1;transform:translateY(0)}
+/* hero */
+#hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding-top:100px}
+.badge{font-family:'Space Mono',monospace;font-size:.68rem;letter-spacing:.14em;color:#9b7fe8;border:1px solid rgba(155,127,232,.35);background:rgba(155,127,232,.08);padding:5px 16px;border-radius:999px;margin-bottom:22px;animation:up .8s .1s ease both}
+.name{font-family:'Cormorant Garamond',serif;font-size:clamp(3rem,10vw,6.5rem);font-weight:300;line-height:1;animation:up .8s .25s ease both}
+.name em{font-style:italic;background:linear-gradient(135deg,#9b7fe8,#e878b8);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.role{font-size:1rem;font-weight:300;color:#9a8ab0;margin-top:14px;letter-spacing:.1em;animation:up .8s .4s ease both}
+.desc{font-size:.93rem;color:#9a8ab0;line-height:1.8;max-width:400px;margin-top:16px;animation:up .8s .55s ease both}
+.arrow{margin-top:50px;display:flex;flex-direction:column;align-items:center;gap:6px;font-family:'Space Mono',monospace;font-size:.64rem;letter-spacing:.12em;color:rgba(154,138,176,.4);animation:up .8s .9s ease both}
+.arrow span{width:1px;height:42px;background:linear-gradient(to bottom,#9b7fe8,transparent);animation:pulse 2s ease-in-out infinite}
+@keyframes up{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+@keyframes pulse{0%,100%{opacity:.3}50%{opacity:1}}
+/* about */
+.ag{display:grid;grid-template-columns:1.1fr .9fr;gap:20px}
+.at{font-size:.93rem;line-height:1.85;color:#6e6285}.at strong{color:#9b7fe8;font-weight:500}
+.pill{display:flex;align-items:center;gap:13px;padding:13px 17px;background:rgba(255,255,255,.6);border:1px solid rgba(255,255,255,.8);border-radius:14px;backdrop-filter:blur(10px);margin-bottom:11px;transition:transform .25s}
+.pill:hover{transform:translateX(5px)}
+.pi{width:36px;height:36px;border-radius:10px;background:linear-gradient(135deg,rgba(196,176,245,.25),rgba(245,176,210,.25));display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0}
+.pl{font-size:.66rem;color:#9a8ab0;letter-spacing:.04em}.pv{font-size:.87rem;font-weight:500;margin-top:1px}
+/* skills */
+.sg{display:grid;grid-template-columns:repeat(auto-fit,minmax(138px,1fr));gap:11px}
+.sk{padding:16px 14px 13px;background:rgba(255,255,255,.5);border:1px solid rgba(255,255,255,.75);border-radius:16px;backdrop-filter:blur(14px);text-align:center;transition:transform .3s}
+.sk:hover{transform:translateY(-5px)}
+.se{font-size:1.35rem;display:block;margin-bottom:5px}.sn{font-size:.8rem;font-weight:500}.st{font-size:.62rem;color:#9a8ab0;font-family:'Space Mono',monospace;margin-top:2px}
+.bar{height:3px;background:rgba(196,176,245,.2);border-radius:4px;margin-top:9px;overflow:hidden}
+.bf{height:100%;background:linear-gradient(90deg,#9b7fe8,#e878b8);width:0;transition:width 1.2s cubic-bezier(.4,0,.2,1)}
+/* projects */
+.pg{display:grid;grid-template-columns:repeat(auto-fit,minmax(245px,1fr));gap:16px}
+.pr{padding:24px;background:rgba(255,255,255,.5);border:1px solid rgba(255,255,255,.75);border-radius:18px;backdrop-filter:blur(14px);position:relative;overflow:hidden;transition:transform .3s,box-shadow .3s}
+.pr::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,#9b7fe8,#e878b8);opacity:0;transition:opacity .3s}
+.pr:hover{transform:translateY(-6px);box-shadow:0 14px 36px rgba(155,127,232,.18)}.pr:hover::before{opacity:1}
+.pn{font-family:'Space Mono',monospace;font-size:.62rem;color:rgba(196,176,245,.6);letter-spacing:.1em;margin-bottom:9px}
+.pt{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:300;margin-bottom:7px}
+.pd{font-size:.82rem;color:#6e6285;line-height:1.7;margin-bottom:13px}
+.tags{display:flex;flex-wrap:wrap;gap:5px}
+.tag{font-family:'Space Mono',monospace;font-size:.59rem;padding:3px 9px;border-radius:999px;background:rgba(196,176,245,.14);border:1px solid rgba(196,176,245,.3);color:#9b7fe8}
+.pa{display:inline-block;margin-top:11px;font-size:.7rem;font-family:'Space Mono',monospace;color:#9b7fe8;text-decoration:none}
+.pw{display:inline-block;margin-top:11px;font-size:.68rem;font-family:'Space Mono',monospace;color:rgba(155,127,232,.42)}
+/* edu */
+.ed{display:flex;align-items:flex-start;gap:18px;padding:24px 28px;margin-bottom:13px}
+.ei{width:40px;height:40px;border-radius:11px;flex-shrink:0;background:linear-gradient(135deg,rgba(196,176,245,.25),rgba(245,176,210,.25));border:1px solid rgba(196,176,245,.3);display:flex;align-items:center;justify-content:center;font-size:1.15rem}
+.en{font-family:'Cormorant Garamond',serif;font-size:1.18rem;font-weight:300;margin-bottom:2px}
+.ec{font-size:.8rem;color:#9b7fe8;font-weight:500;margin-bottom:3px}.edd{font-size:.76rem;color:#9a8ab0;line-height:1.6}
+/* exp */
+.tl{position:relative;padding-left:24px}.tl::before{content:'';position:absolute;left:0;top:6px;bottom:6px;width:1px;background:linear-gradient(to bottom,#9b7fe8,#f5b0d2,transparent)}
+.ex{position:relative;margin-bottom:18px;padding:20px 24px}
+.ex::before{content:'';position:absolute;left:-30px;top:26px;width:10px;height:10px;border-radius:50%;background:linear-gradient(135deg,#9b7fe8,#e878b8);box-shadow:0 0 0 3px rgba(196,176,245,.22)}
+.ey{font-family:'Space Mono',monospace;font-size:.62rem;color:#e878b8;letter-spacing:.1em;margin-bottom:5px}
+.et{font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:300;margin-bottom:2px}
+.eo{font-size:.78rem;color:#9b7fe8;font-weight:500;margin-bottom:6px}.edc{font-size:.78rem;color:#6e6285;line-height:1.68}
+.eb{display:inline-block;margin-top:7px;font-family:'Space Mono',monospace;font-size:.59rem;padding:2px 10px;border-radius:999px;background:rgba(196,176,245,.14);border:1px solid rgba(196,176,245,.3);color:#9b7fe8;letter-spacing:.06em}
+/* contact */
+.cw{max-width:460px;margin:0 auto;text-align:center}
+.cs{font-size:.9rem;color:#9a8ab0;line-height:1.78;margin-bottom:24px}
+.cr{display:flex;align-items:center;gap:13px;padding:12px 17px;background:rgba(255,255,255,.52);border:1px solid rgba(255,255,255,.78);border-radius:13px;backdrop-filter:blur(10px);text-decoration:none;color:#2a1f3d;transition:transform .25s;margin-bottom:10px;text-align:left}
+.cr:hover{transform:translateX(5px)}
+.cion{width:30px;height:30px;border-radius:8px;background:linear-gradient(135deg,rgba(196,176,245,.22),rgba(245,176,210,.22));display:flex;align-items:center;justify-content:center;font-size:.85rem;flex-shrink:0}
+.cll{font-size:.63rem;color:#9a8ab0;font-family:'Space Mono',monospace;letter-spacing:.06em}.cv{font-size:.84rem;font-weight:500;margin-top:1px}
+/* footer */
+footer{padding:48px 24px 34px;text-align:center}
+.fm{font-family:'Cormorant Garamond',serif;font-size:clamp(1.3rem,3.5vw,2rem);font-weight:300;font-style:italic;opacity:0;transform:translateY(16px);transition:opacity .9s,transform .9s;margin-bottom:8px}
+.fm.on{opacity:1;transform:translateY(0)}
+.floats{position:relative;height:60px;margin:16px 0}
+.f{position:absolute;bottom:0;font-size:1rem;animation:rise var(--d,3s) ease-in infinite;animation-delay:var(--dl,0s);opacity:0}
+@keyframes rise{0%{opacity:0;transform:translateY(0) scale(.5)}15%{opacity:1}85%{opacity:.5}100%{opacity:0;transform:translateY(-58px) scale(1.1)}}
+.sprow{display:flex;justify-content:center;gap:6px;margin-bottom:16px}
+.sp{display:inline-block;font-size:.85rem;animation:spk 1.8s ease-in-out infinite;animation-delay:var(--s,0s)}
+@keyframes spk{0%,100%{transform:scale(1);opacity:.5}50%{transform:scale(1.45) rotate(12deg);opacity:1}}
+.wv{font-family:'Space Mono',monospace;font-size:.7rem;letter-spacing:.1em;color:#9a8ab0;margin-bottom:12px;min-height:1.3em}
+.wc{display:inline-block;animation:ww 2s ease-in-out infinite;animation-delay:var(--w,0s)}
+@keyframes ww{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
+.fc{font-size:.63rem;color:rgba(154,138,176,.35);font-family:'Space Mono',monospace;letter-spacing:.06em}
+.rn{background:linear-gradient(90deg,#9b7fe8,#e878b8,#9b7fe8);background-size:200% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:rb 3s linear infinite}
+@keyframes rb{to{background-position:200% center}}
+@media(max-width:640px){nav{gap:12px;padding:8px 14px}nav a{font-size:.6rem}.ag{grid-template-columns:1fr}.ed{flex-direction:column;gap:11px}}
+</style>
+</head>
+<body>
+ 
+<nav>
+  <a href="#about">About</a>
+  <a href="#skills">Skills</a>
+  <a href="#projects">Projects</a>
+  <a href="#education">Education</a>
+  <a href="#experience">Experience</a>
+  <a href="#contact">Contact</a>
+</nav>
+ 
+<section id="hero">
+  <div class="badge">✦ AI & ML Beginner · Always Learning</div>
+  <h1 class="name">Uthukota <em>Mohitha</em></h1>
+  <p class="role">AI & ML Enthusiast</p>
+  <p class="desc">Curious about intelligent systems. Building a future in AI & ML with patience and passion 🌸</p>
+  <div class="arrow"><span></span>scroll</div>
+</section>
+ 
+<section id="about">
+  <div class="show"><p class="lbl">// who i am</p><h2>About <em>Me</em></h2></div>
+  <div class="ag">
+    <div class="card show">
+      <p class="at">I am an aspiring <strong>AI/ML enthusiast</strong> with a strong curiosity for how intelligent systems work and how they solve real-world problems. I enjoy exploring concepts and improving through hands-on projects.</p>
+      <br/><p class="at">My goal is to become a skilled <strong>AI/ML engineer</strong> by consistently learning, building, and contributing to meaningful projects 🌱</p>
+    </div>
+    <div class="show">
+      <div class="pill"><div class="pi">🎓</div><div><div class="pl">studying</div><div class="pv">AI & ML — B.Tech @ VJIT</div></div></div>
+      <div class="pill"><div class="pi">📍</div><div><div class="pl">based in</div><div class="pv">Hyderabad, India</div></div></div>
+      <div class="pill"><div class="pi">🌱</div><div><div class="pl">exploring</div><div class="pv">ML · Data Analysis · AI</div></div></div>
+      <div class="pill"><div class="pi">🎵</div><div><div class="pl">hobbies</div><div class="pv">Cycling · Music · Animations</div></div></div>
+    </div>
+  </div>
+</section>
+ 
+<section id="skills">
+  <div class="show"><p class="lbl">// what i know</p><h2>My <em>Skills</em></h2></div>
+  <div class="sg show" id="sg">
+    <div class="sk" data-l="55"><span class="se">🐍</span><div class="sn">Python</div><div class="st">basics</div><div class="bar"><div class="bf"></div></div></div>
+    <div class="sk" data-l="50"><span class="se">🤖</span><div class="sn">AI/ML Concepts</div><div class="st">domain</div><div class="bar"><div class="bf"></div></div></div>
+    <div class="sk" data-l="58"><span class="se">💻</span><div class="sn">C Language</div><div class="st">language</div><div class="bar"><div class="bf"></div></div></div>
+    <div class="sk" data-l="72"><span class="se">🤝</span><div class="sn">Teamwork</div><div class="st">soft skill</div><div class="bar"><div class="bf"></div></div></div>
+    <div class="sk" data-l="76"><span class="se">🌱</span><div class="sn">Adaptability</div><div class="st">soft skill</div><div class="bar"><div class="bf"></div></div></div>
+    <div class="sk" data-l="48"><span class="se">📊</span><div class="sn">Data Analysis</div><div class="st">learning</div><div class="bar"><div class="bf"></div></div></div>
+  </div>
+</section>
+ 
+<section id="projects">
+  <div class="show"><p class="lbl">// what i've built</p><h2>My <em>Projects</em></h2></div>
+  <div class="pg">
+    <div class="pr show"><div class="pn">01 ✦</div><div class="pt">Government Feedback Portal</div><p class="pd">A web portal for citizens to submit feedback on government services — my first real-world impact project.</p><div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span></div><a href="https://github.com/Mohitha011207" class="pa" target="_blank">→ github</a></div>
+    <div class="pr show"><div class="pn">02 ✦</div><div class="pt">Smart Energy Optimizer</div><p class="pd">A concept using data-driven insights to optimize energy use — exploring how AI makes systems more efficient.</p><div class="tags"><span class="tag">Python</span><span class="tag">Data Analysis</span><span class="tag">AI</span></div><span class="pw">✦ in progress</span></div>
+    <div class="pr show"><div class="pn">03 ✦</div><div class="pt">Next Project</div><p class="pd">Something exciting is brewing ✨ Exploring ideas at the intersection of AI, data, and real-world problems.</p><div class="tags"><span class="tag">Coming Soon</span><span class="tag">AI/ML</span></div><span class="pw">✦ dreaming it up</span></div>
+  </div>
+</section>
+ 
+<section id="education">
+  <div class="show"><p class="lbl">// where i study</p><h2>My <em>Education</em></h2></div>
+  <div class="card ed show"><div class="ei">🏛️</div><div><div class="en">Vidya Jyothi Institute of Technology</div><div class="ec">B.Tech — AI & Machine Learning</div><div class="edd">2023 – 2027 · Hyderabad, Telangana</div></div></div>
+  <div class="card ed show"><div class="ei">🏫</div><div><div class="en">[Your School Name]</div><div class="ec">Higher Secondary — [Stream]</div><div class="edd">[Year] · Score: [X%]</div></div></div>
+</section>
+ 
+<section id="experience">
+  <div class="show"><p class="lbl">// where i've shown up</p><h2>Experience & <em>Hackathons</em></h2></div>
+  <div class="tl">
+    <div class="card ex show"><div class="ey">2025</div><div class="et">Smart India Hackathon (SIH 2025)</div><div class="eo">@ Government of India · National Level</div><div class="edc">Participated and got shortlisted — built a solution for a real government problem as a team.</div><span class="eb">✦ Shortlisted</span></div>
+    <div class="card ex show"><div class="ey">2025</div><div class="et">TechSprint Hackathon</div><div class="eo">@ Google Developer Group (GDG)</div><div class="edc">Gained hands-on experience in rapid prototyping, team collaboration, and pitching ideas under pressure.</div><span class="eb">✦ Participant</span></div>
+  </div>
+</section>
+ 
+<section id="contact">
+  <div class="cw">
+    <div class="show"><p class="lbl">// say hello</p><h2>Let's <em>Connect</em></h2></div>
+    <p class="cs show">Happy to connect with fellow learners, mentors, or anyone curious about AI & ML 🌸</p>
+    <a href="mailto:uthumohitha@gmail.com" class="cr show"><div class="cion">📩</div><div><div class="cll">email</div><div class="cv">uthumohitha@gmail.com</div></div></a>
+    <a href="https://github.com/Mohitha011207" target="_blank" class="cr show"><div class="cion">🐙</div><div><div class="cll">github</div><div class="cv">Mohitha011207</div></div></a>
+    <a href="#" class="cr show"><div class="cion">💼</div><div><div class="cll">linkedin</div><div class="cv">[Add your LinkedIn]</div></div></a>
+  </div>
+</section>
+ 
+<footer id="ft">
+  <div class="fm" id="fm">thank you for visiting ✦</div>
+  <div class="floats">
+    <span class="f" style="left:8%;--d:3.2s;--dl:0s">🌸</span><span class="f" style="left:21%;--d:2.8s;--dl:.4s">💜</span>
+    <span class="f" style="left:35%;--d:3.5s;--dl:.8s">✨</span><span class="f" style="left:50%;--d:2.6s;--dl:.2s">🌸</span>
+    <span class="f" style="left:64%;--d:3.1s;--dl:.6s">💫</span><span class="f" style="left:78%;--d:2.9s;--dl:1s">💜</span><span class="f" style="left:90%;--d:3.4s;--dl:.3s">✨</span>
+  </div>
+  <div class="sprow">
+    <span class="sp" style="--s:0s">✦</span><span class="sp" style="--s:.15s">✧</span><span class="sp" style="--s:.3s">✦</span>
+    <span class="sp" style="--s:.45s">✧</span><span class="sp" style="--s:.6s">✦</span><span class="sp" style="--s:.75s">✧</span>
+    <span class="sp" style="--s:.9s">✦</span><span class="sp" style="--s:1.05s">✧</span><span class="sp" style="--s:1.2s">✦</span>
+  </div>
+  <div class="wv" id="wv"></div>
+  <div class="fc">crafted with 🌸 · <span class="rn">Uthukota Mohitha</span> © 2025</div>
+</footer>
+ 
+<script>
+const obs = new IntersectionObserver(e => e.forEach((x,i) => { if(x.isIntersecting){ setTimeout(()=>x.target.classList.add('on'), i*55); obs.unobserve(x.target); }}), {threshold:.1});
+document.querySelectorAll('.show').forEach(e => obs.observe(e));
+ 
+new IntersectionObserver(e => { if(e[0].isIntersecting) e[0].target.querySelectorAll('.sk').forEach((s,i) => setTimeout(()=>s.querySelector('.bf').style.width=s.dataset.l+'%', i*100)); }, {threshold:.2}).observe(document.getElementById('sg'));
+ 
+document.querySelectorAll('section[id]').forEach(s => new IntersectionObserver(e => { if(e[0].isIntersecting){ document.querySelectorAll('nav a').forEach(a=>a.style.color=''); const a=document.querySelector('nav a[href="#'+s.id+'"]'); if(a)a.style.color='#9b7fe8'; }},{rootMargin:'-40% 0px -55%'}).observe(s));
+ 
+new IntersectionObserver(e => { if(e[0].isIntersecting){ document.getElementById('fm').classList.add('on'); const msg="keep dreaming · keep building · keep going ✨", el=document.getElementById('wv'); el.innerHTML=''; [...msg].forEach((c,i)=>{ const s=document.createElement('span'); s.className='wc'; s.style.setProperty('--w',i*.055+'s'); s.textContent=c===' '?'\u00A0':c; el.appendChild(s); }); }},{threshold:.3}).observe(document.getElementById('ft'));
+</script>
+</body>
+</html>
